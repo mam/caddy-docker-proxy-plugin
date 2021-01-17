@@ -11,8 +11,8 @@ import (
 
 	"github.com/caddyserver/caddy/v2"
 	caddycmd "github.com/caddyserver/caddy/v2/cmd"
-	"github.com/mam/caddy-docker-proxy-module/config"
-	"github.com/mam/caddy-docker-proxy-module/generator"
+	"github.com/mam/caddy-docker-proxy-plugin/config"
+	"github.com/mam/caddy-docker-proxy-plugin/generator"
 )
 
 var isTrue = regexp.MustCompile("(?i)^(true|yes|1)$")
