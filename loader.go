@@ -217,7 +217,7 @@ func (dockerLoader *DockerLoader) updateServer(wg *sync.WaitGroup, server string
 
 	url := "http://" + server + ":2019/load"
 
-	postBody, err := addAdminListen(dockerLoader.lastJSONConfig, "tcp/"+server+":2019")
+	postBody, err := addAdminListen(dockerLoader.lastJSONConfig, "0.0.0.0:2019")
 	if err != nil {
 		log.Printf("[ERROR] Failed to add admin listen to %v: %s", server, err)
 		return
