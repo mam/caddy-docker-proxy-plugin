@@ -82,6 +82,7 @@ func cmdFunc(flags caddycmd.Flags) (int, error) {
 
 func getAdminListen(options *config.Options) string {
 	if options.ControllerNetwork != nil {
+		log.Printf("[INFO] Controllet network is set")
 		ifaces, err := net.Interfaces()
 		if err != nil {
 			log.Printf("[ERROR] Failed to get network interfaces: %v", err)
