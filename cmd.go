@@ -81,33 +81,6 @@ func cmdFunc(flags caddycmd.Flags) (int, error) {
 }
 
 func getAdminListen(options *config.Options) string {
-	if options.ControllerNetwork != nil {
-		ifaces, err := net.Interfaces()
-		if err != nil {
-			log.Printf("[ERROR] Failed to get network interfaces: %v", err)
-		}
-		for _, i := range ifaces {
-			addrs, err := i.Addrs()
-			if err != nil {
-				log.Printf("[ERROR] Failed to get network interface addresses: %v", err)
-				continue
-			}
-			for _, a := range addrs {
-				switch v := a.(type) {
-				case *net.IPAddr:
-					if options.ControllerNetwork.Contains(v.IP) {
-						return "tcp/" + v.IP.String() + ":2019"
-					}
-					break
-				case *net.IPNet:
-					if options.ControllerNetwork.Contains(v.IP) {
-						return "tcp/" + v.IP.String() + ":2019"
-					}
-					break
-				}
-			}
-		}
-	}
 	return "0.0.0.0:2019"
 }
 
